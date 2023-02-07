@@ -1,0 +1,36 @@
+.SearchBox {
+    border-width: 3px;
+    border-spacing: 5px;
+    border-color: greenyellow;
+    border-style: solid;
+    border-radius: 2em;
+    outline: none;
+    
+    /* height: 4vh; */
+    /* width: 40vw; */
+    width: 80%;
+
+    padding: 0.5em;
+
+    text-align: center;
+    color: greenyellow;
+    
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.SearchBox::placeholder {
+    color: greenyellow;
+}
+
+.SearchBox:focus {
+    border-color: green;
+    color: green;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.SearchBox:focus::placeholder {
+    color: green;
+}
+
