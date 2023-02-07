@@ -2,7 +2,8 @@
 
 A simple app that help you to take numeric notes.
 
-Here some documentation:
+
+# Documentation
 
 * [Description](./docs/description.md)
 * [Architecture](./docs/architecture.md) 
