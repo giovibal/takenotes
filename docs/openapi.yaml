@@ -124,7 +124,7 @@ components:
       type: object
       properties:
         id:
-          type: integer
+          type: string
           readOnly: true
         label:
           type: string
