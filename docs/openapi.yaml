@@ -5,14 +5,23 @@ info:
 servers:
   - url: https://api.server.test/v1
 paths:
-  /config/fields:
+  /config:
     get:
       summary: 'get all fields configured'
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/config'
     post:
       summary: 'reconfigure all fields'
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/config'
       responses:
         '200':
           description: OK
@@ -83,6 +92,27 @@ components:
           type: string
         label: 
           type: string
+    config:
+      type: object
+      properties:
+        # id:
+        #   type: integer
+        #   readOnly: true
+        # label:
+        #   type: string
+        fields:
+          type: array
+          items: 
+            $ref: "#/components/schemas/fieldtype"
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true          
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+
     field:
       type: object
       properties:
