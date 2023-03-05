@@ -1,6 +1,6 @@
 # Technology stack
 
-First release will use: `angulae`, `golang`, `postgres`.
+First release will use: `angular`, `golang`, `postgres`.
 
 Than switch tecnology for frontend and backend to evaluate performances, productivity and maintainability:
 
