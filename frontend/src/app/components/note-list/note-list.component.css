@@ -1,0 +1,23 @@
+.noteItem {
+    border-color: gray;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.noteItemCell {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+} 
+
+.mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+  
+.mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+}
+  
