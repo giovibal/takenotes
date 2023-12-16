@@ -33,6 +33,8 @@ dist: build
 dist-clean: 
 	rm -Rf $(distDir)
 
+.PHONY: clean
+clean: build-clean dist-clean
 
 	
 .PHONY: test
@@ -53,6 +55,6 @@ gen-clean:
 .PHONY: gen-update
 gen-update: gen-clean gen 
 
-
 .PHONY: clean-all
-clean-all: gen-clean build-clean dist-clean
+clean-all: gen-clean clean
+
