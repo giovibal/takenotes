@@ -23,7 +23,7 @@ plugins:
   #   out: web/src/gen/ng
   #   opt: paths=source_relative
   - plugin: buf.build/connectrpc/go
-    out: backend/gen
+    out: gen
     opt: paths=source_relative
   - plugin: buf.build/bufbuild/es
     out: web/src/gen
