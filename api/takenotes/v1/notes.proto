@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package takenotes.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+service NotesService {
+  rpc CreateNote(CreateNoteRequest) returns (CreateNoteResponse) {
+    option (google.api.http) = {
+      post: "/v1/notes"
+      body: "*"
+    };
+  }
+
+  rpc UpdateNote(UpdateNoteRequest) returns (UpdateNoteResponse) {
+    option (google.api.http) = {
+      put: "/v1/notes/{item.id}"
+      body: "*"
+    };
+  }
+
+  rpc DeleteNote(DeleteNoteRequest) returns (DeleteNoteResponse) {
+    option (google.api.http) = {delete: "/v1/notes/{id}"};
+  }
+
+  rpc GetNote(GetNoteRequest) returns (GetNoteResponse) {
+    option (google.api.http) = {get: "/v1/notes/{id}"};
+  }
+
+  rpc SearchNotes(SearchNotesRequest) returns (stream SearchNotesResponse) {
+    option (google.api.http) = {get: "/v1/notes"};
+  }
+}
+
+message CreateNoteRequest {
+  Note item = 1;
+}
+
+message CreateNoteResponse {
+  bool success = 1;
+  Note item = 2;
+}
+
+message UpdateNoteRequest {
+  Note item = 1;
+}
+
+message UpdateNoteResponse {
+  bool success = 1;
+  Note item = 2;
+}
+
+message DeleteNoteRequest {
+  string id = 1;
+}
+
+message DeleteNoteResponse {
+  bool success = 1;
+  string deleted_id = 2;
+}
+
+message GetNoteRequest {
+  string id = 1;
+}
+message GetNoteResponse {
+  Note item = 1;
+}
+
+message SearchNotesRequest {
+  string query = 1;
+  optional string next_page_token = 2;
+}
+
+message SearchNotesResponse {
+  Note item = 1;
+}
+
+message Note {
+  string id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  string name = 4;
+}
